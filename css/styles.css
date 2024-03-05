@@ -1,0 +1,301 @@
+/*
+Colors used
+background-color #f4e7d7
+box colors #badbff
+*/
+:root {
+  --primary-color-bg: #f4e7d7;
+  --secondary-color: #badbff;
+  --tertiary-color: #ffdeba;
+  --dark-grey: #2b2b2b;
+  --font-family: 'Merriweather';
+  --a-unvisted: #0eb2be;
+  --a-visited: #05676e;
+}
+
+a {
+  color: var(--a-unvisted);
+}
+
+a:visited {
+  color: var(--a-visited);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Body and Headings */
+
+body {
+  background-color: var(--primary-color-bg);
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 10px;
+  margin: 10px;
+  border: 1px;
+}
+
+.required-field::after {
+  content: "*";
+  color: red;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 700px;
+}
+
+a:hover,
+a:focus {
+  /* no underlining when overing over a link */
+  text-decoration: none;
+}
+
+a:active {
+  /* selected link */
+  color: #489c79;
+}
+
+button,
+.button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: var(--secondary-color);
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/*
+.button__secondary {
+  background-color: #d19540;
+  color: #2b2b2b;
+}
+*/
+
+/* Header */
+
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.page-header__item {
+  width: 200px;
+  height: 70px;
+}
+
+.page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+/* Nav */
+
+.navigation-list {
+  list-style-type: none;
+}
+
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.navigation-list__item--active {
+  text-decoration: none;
+}
+
+/* Profile - Home */
+
+/* --profile styling */
+.profile {
+  max-width: 700px;
+  margin: 10% auto;
+  align-items: baseline;
+}
+
+.profile__portrait {
+  float: left;
+  width: 250px;
+  margin-right: 40px;
+  border-radius: 50%;
+}
+
+.profile_intro {
+  text-align: center;
+}
+
+.profile_intro_a {
+  margin-top: 5%;
+}
+
+/* About Page */
+
+.about-me {
+  text-align: center;
+}
+
+.table {
+  margin: 0 auto;
+  text-align: center;
+  padding: 1%;
+  margin-bottom: 2%;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+/* Contact Me Page */
+
+/* Footer */
+
+.page-footer {
+  clear: both;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+/* Work Page - Grid */
+
+.grid__item {
+  display: inline-block;
+  width: 33%;
+}
+
+@supports (display:grid) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .grid_item {
+    background-color: #badbff;
+    width: auto;
+    min-height: auto;
+    padding: 20px;
+    margin: 0;
+    border-radius: 10px;
+    transition: transform 0.3 ease;
+  }
+
+  .grid_item:hover .grid_overlay {
+    transform: scale(1.05); /* increase the size by 5% on hover */
+    cursor: pointer;
+    display: block;
+  }
+
+  .grid_overlay {
+    background-color: var(--tertiary-color);
+    display: none;
+    color: var(--dark-grey); /* text color for overlay content */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 2%;
+    border-radius: 5px;
+  }
+
+  .grid__item:last-child {
+    grid-column: 3 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
+/* About me Page Animation */
+
+@keyframes color-change {
+  0% {
+    fill: #edc655;
+  }
+
+  50% {
+    fill: #fcffad;
+  }
+
+  100% {
+    fill: #f76414;
+  }
+}
+
+.sun {
+  animation: 4s color-change infinite alternate linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+
+.cloud-front {
+  fill: white;
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
