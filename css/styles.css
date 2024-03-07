@@ -45,6 +45,7 @@ body {
 h1 {
   font-size: 30px;
   font-weight: 700px;
+  display: inline-flex;
 }
 
 h2 {
@@ -144,6 +145,7 @@ button:focus,
   float: inline-start;
   width: 250px;
   border-radius: 50%;
+  display: inline-flexbox;
 }
 
 .profile_intro {
