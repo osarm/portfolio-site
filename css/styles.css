@@ -4,13 +4,13 @@ background-color #f4e7d7
 box colors #badbff
 */
 :root {
-  --primary-color-bg: #f4e7d7;
+  --primary-color-bg: #f5f5dc;
   --secondary-color: #badbff;
   --tertiary-color: #ffdeba;
   --dark-grey: #2b2b2b;
   --font-family: 'Merriweather';
-  --a-unvisted: #0eb2be;
-  --a-visited: #05676e;
+  --a-unvisted: #006970;
+  --a-visited: #007c84;
 }
 
 a {
@@ -66,7 +66,7 @@ a:focus {
 
 a:active {
   /* selected link */
-  color: #489c79;
+  color: var(--a-visited);
 }
 
 button,
@@ -130,6 +130,7 @@ button:focus,
 
 .navigation-list__item--active {
   text-decoration: none;
+  color: var(--a-visited);
 }
 
 /* Profile - Home */
@@ -182,6 +183,11 @@ button:focus,
   background-color: var(--secondary-color);
   border-radius: 10px;
 }
+
+/* .contact-form {
+  text-align: center;
+  flex-direction: column;
+} */
 
 /* Footer */
 
